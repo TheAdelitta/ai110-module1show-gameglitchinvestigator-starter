@@ -4,9 +4,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+So for the first time I ran the game, it asked me to guess the mystery number while giving me 7 attempts to guess the right number with a clue. The range was 1 to 100, and everytime I guessed from 1-50 it said to go lower with the same hint. This should have logically triggered "go higher". When the round ended, the actual number was -35, which is well outside of range. The hint is also 63, which is unhelpful at all. The game also doens't reset properly between rounds, as the new game button doesn't work. The submit button for a number guess also doesn't always work?
 
 **Bug Reproduction Log**
 
@@ -14,9 +12,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Guess of 50 (secret was -35) | "Too Low" hint, since 50 > -35 | "Go lower" hint shown | none |
+| Guess of 1 (secret was -35) | "Too High" or "Correct" hint, since 1 > -35 | "Go lower" hint still shown | none |
+| Started a new game | New secret number between 1-100, input/history cleared | Secret was -35 (out of range), "63" shown as leftover secret, old guess history still visible | none |
 
 ---
 
